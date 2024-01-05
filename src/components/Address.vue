@@ -17,6 +17,7 @@
       <li
         v-for="(item, index) in currentDataList"
         :key="index"
+        :class="currentSelectedId === item.id ? 'selected' : ''"
         @click="() => handlerClick(item, item.id)"
       >
         {{ item.name }}
@@ -44,6 +45,7 @@ export default {
 
     return {
       needSelected: true,
+      currentSelectedId: null,
     };
   },
   watch: {
@@ -57,8 +59,10 @@ export default {
         }
 
         const target = findCurrentData(addressData, newValue);
-        const { parent = [], children = [], isLast } = target.at(-1) || {};
+        const { parent = [], children = [], isLast, id } = target.at(-1) || {};
         if (isLast) this.needSelected = false;
+        this.currentSelectedId = id;
+        console.log("###:  ", target);
 
         // 当选择过后，当前展示的地址列表为同级地址
         if (!this.needSelected) {
@@ -132,5 +136,9 @@ nav > div {
   text-align: center;
   border-radius: 3px;
   cursor: pointer;
+}
+
+.selected {
+  color: #ff0000;
 }
 </style>
