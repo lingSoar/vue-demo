@@ -5,7 +5,8 @@
       <h4>{{ address }}</h4>
     </div>
 
-    <button @click="change">改变</button>
+    <button @click="change">改变</button>&nbsp;
+    <button @click="addressInfo = []">清空</button>
     <hr />
     <br />
 
@@ -30,14 +31,18 @@ export default {
     return {
       isShow: false,
       addressInfo: [
-        // {
-        //   id: 1,
-        //   name: "安徽省",
-        // },
-        // {
-        //   id: 32,
-        //   name: "安庆市",
-        // },
+        {
+          id: 1,
+          name: "安徽省",
+        },
+        {
+          id: 32,
+          name: "安庆市",
+        },
+        {
+          id: 382,
+          name: "枞阳县",
+        },
       ],
     };
   },
@@ -63,6 +68,10 @@ export default {
           id: 49,
           name: "福州市",
         },
+        {
+          id: 507,
+          name: "晋安区",
+        },
       ];
     },
     changeData(data) {
@@ -77,7 +86,7 @@ export default {
 
 <style>
 #app {
-  margin-left: 300px;
+  margin-left: 60px;
 }
 .flex {
   display: flex;
