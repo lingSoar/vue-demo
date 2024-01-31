@@ -60,13 +60,19 @@ export default {
 
         const target = findCurrentData(addressData, newValue);
         const { parent = [], children = [], isLast, id } = target.at(-1) || {};
-        if (isLast) this.needSelected = false;
+        if (isLast) {
+          this.needSelected = false;
+          this.currentSelectedIndex = newValue.length - 1;
+        }
         this.currentSelectedId = id;
         console.log("###:  ", target);
 
         // 当选择过后，当前展示的地址列表为同级地址
         if (!this.needSelected) {
-          this.currentDataList = parent.map((i) => ({ ...i, isLast }));
+          this.currentDataList = parent.map((i) => ({
+            ...i,
+            isLast: !i.children || !i.children.length,
+          }));
           this.$forceUpdate();
           return;
         }

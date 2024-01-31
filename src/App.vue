@@ -32,16 +32,20 @@ export default {
       isShow: false,
       addressInfo: [
         {
-          id: 1,
-          name: "安徽省",
+          id: 5,
+          name: "广东省",
         },
         {
-          id: 32,
-          name: "安庆市",
+          id: 86,
+          name: "深圳市",
         },
         {
-          id: 382,
-          name: "枞阳县",
+          id: 752,
+          name: "宝安区",
+        },
+        {
+          id: 8173,
+          name: "西乡街道",
         },
       ],
     };
